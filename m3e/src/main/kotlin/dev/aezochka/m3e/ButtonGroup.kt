@@ -77,6 +77,7 @@ fun M3EMenuItem(
     androidx.compose.material3.DropdownMenuItem(
         text = { androidx.compose.material3.Text(text) },
         onClick = onClick,
+        shape = RoundedCornerShape(20.dp),
         modifier = modifier,
         leadingIcon = if (leadingIcon != null) {
             { Icon(leadingIcon, contentDescription = null) }
