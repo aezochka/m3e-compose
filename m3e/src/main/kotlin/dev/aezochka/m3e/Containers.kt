@@ -111,7 +111,7 @@ fun M3EBadge(
 /** Обёртка: контент + бейдж в уголке. */
 @Composable
 fun M3EBadgedBox(
-    badge: @Composable () -> Unit,
+    badge: @Composable androidx.compose.foundation.layout.BoxScope.() -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable androidx.compose.foundation.layout.BoxScope.() -> Unit,
 ) {

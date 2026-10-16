@@ -52,11 +52,11 @@ fun M3EMediumFlexibleTopAppBar(
 /** Двухрядный: заголовок + подзаголовок, схлопывается в один ряд. */
 @Composable
 fun M3ETwoRowsTopAppBar(
-    title: @Composable () -> Unit,
+    title: @Composable (Boolean) -> Unit,
     subtitle: @Composable (Boolean) -> Unit,
     modifier: Modifier = Modifier,
-    navigationIcon: @Composable (Boolean) -> Unit = {},
-    actions: @Composable (Boolean) -> Unit = {},
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
     androidx.compose.material3.TwoRowsTopAppBar(
