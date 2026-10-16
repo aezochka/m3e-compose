@@ -1,0 +1,76 @@
+name: Build & Publish
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Опубликовать AAR в GitHub Packages'
+        type: boolean
+        default: false
+      version:
+        description: 'Версия публикации, например 0.1.0'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install Android platform 37
+        run: yes | sdkmanager "platforms;android-37" > /dev/null || true
+
+      - name: Build demo APKs + library AAR
+        run: ./gradlew :demo:assembleDebug :demo:assembleRelease :m3e:assembleRelease --no-daemon --stacktrace
+
+      - name: Collect outputs
+        run: |
+          mkdir -p out
+          cp demo/build/outputs/apk/debug/demo-debug.apk out/M3EDemo-debug.apk
+          cp demo/build/outputs/apk/release/demo-release.apk out/M3EDemo-release.apk
+          cp m3e/build/outputs/aar/m3e-release.aar out/m3e-compose.aar
+          ls -la out/
+
+      - name: Upload APKs
+        uses: actions/upload-artifact@v4
+        with:
+          name: M3EDemo-apk
+          path: out/M3EDemo-*.apk
+          if-no-files-found: error
+
+      - name: Upload AAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: m3e-compose-aar
+          path: out/m3e-compose.aar
+          if-no-files-found: error
+
+      - name: Publish to GitHub Packages
+        if: startsWith(github.ref, 'refs/tags/v') || inputs.publish == true
+        env:
+          ORG_GRADLE_PROJECT_gprUser: aezochka
+          ORG_GRADLE_PROJECT_gprToken: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          if [ "${{ inputs.publish }}" = "true" ] && [ -n "${{ inputs.version }}" ]; then
+            V="${{ inputs.version }}"
+          fi
+          echo "Publishing dev.aezochka:m3e-compose:$V"
+          ./gradlew :m3e:publish -Pm3eVersion="$V" --no-daemon --stacktrace
