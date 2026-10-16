@@ -143,13 +143,17 @@ internal fun TimeScreen() {
 
 @Composable
 internal fun ListsScreen() {
-    var selected by remember { mutableStateOf(0) }
-    repeat(6) { i ->
+    M3EListItem(
+        headline = "Пункт с надзаголовком",
+        overline = "Overline",
+        supporting = "поддерживающий текст",
+        modifier = Modifier.fillMaxWidth(),
+    )
+    repeat(4) { i ->
         M3EListItem(
             headline = "Пункт $i",
-            supporting = "выбранный — пилюля, нажатый — 28dp",
-            selected = selected == i,
-            onClick = { selected = i },
+            supporting = "нажми — press-морф 16→28dp",
+            onClick = { },
             modifier = Modifier.fillMaxWidth(),
         )
     }
