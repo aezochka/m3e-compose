@@ -20,7 +20,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Bolt
 import androidx.compose.material.icons.outlined.Category
-import androidx.compose.material.icons.outlined.Checkbox
+import androidx.compose.material.icons.outlined.TouchApp
 import androidx.compose.material.icons.outlined.Dashboard
 import androidx.compose.material.icons.outlined.Extension
 import androidx.compose.material.icons.outlined.GridView
@@ -28,7 +28,7 @@ import androidx.compose.material.icons.outlined.Layers
 import androidx.compose.material.icons.outlined.List
 import androidx.compose.material.icons.outlined.PictureAsPdf
 import androidx.compose.material.icons.outlined.SmartButton
-import androidx.compose.material.icons.outlined.Split
+import androidx.compose.material.icons.outlined.CallSplit
 import androidx.compose.material.icons.outlined.Tune
 import androidx.compose.material.icons.outlined.ToggleOn
 import androidx.compose.material.icons.outlined.TripOrigin
@@ -61,7 +61,7 @@ val sections = listOf(
     Section("buttons", "Кнопки-морфы", Icons.Outlined.SmartButton),
     Section("toggle", "Toggle + connected", Icons.Outlined.ToggleOn),
     Section("buttongroup", "ButtonGroup", Icons.Outlined.GridView),
-    Section("split", "SplitButton", Icons.Outlined.Split),
+    Section("split", "SplitButton", Icons.Outlined.CallSplit),
     Section("toolbar", "FloatingToolbar", Icons.Outlined.Tune),
     Section("fabmenu", "FAB-меню", Icons.Outlined.Bolt),
     Section("appbar", "Flexible app bar", Icons.Outlined.Dashboard),
@@ -72,7 +72,7 @@ val sections = listOf(
     Section("sheets", "Sheets", Icons.Outlined.Layers),
     Section("menus", "Меню-группы", Icons.Outlined.List),
     Section("morph", "Морфы фигур", Icons.Outlined.Extension),
-    Section("press", "Press / Pop-in / Волна", Icons.Outlined.Checkbox),
+    Section("press", "Press / Pop-in / Волна", Icons.Outlined.TouchApp),
 )
 
 @Composable
