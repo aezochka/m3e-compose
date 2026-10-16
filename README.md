@@ -4,26 +4,45 @@
 Поверх `androidx.compose.material3:material3:1.5.0-beta01`, которая сама по себе —
 не полный порт: компоненты есть, но дефолтов нет.
 
-## Что добавляет к material3 1.5.0-beta01
+Сверялся с живыми M3E-проектами: meticha/material-3-expressive-catalog,
+ocegik/Material3Expressive, M3E Canvas (setproduct).
 
+## Что внутри (v0.2.0)
+
+**Тема и движение**
 - `M3ETheme` — MaterialExpressiveTheme + MotionScheme.expressive() + экспрессивная
   шкала углов (10/14/18/26/34) + Material You динамические цвета, в один вызов.
-- `Modifier.m3ePress` — фирменный пружинный press: спад масштаба + морф угла
-  (прототипная физика cubic-bezier(.34,1.45,.5,1) ≈ spring(0.62, MediumLow)).
-- `Modifier.m3ePopIn` — стэггерное волной-появление элементов.
-- `M3EButton` / `M3ETonalButton` / `M3EOutlinedButton` — кнопки, которые морфятся
-  pill → сжатый угол при нажатии (в beta01 Button умеет `ButtonShapes`, но не
-  применяет их по умолчанию).
-- `M3EWavyDivider` — волна-разделитель из прототипа m3e.
-- `M3ELinearWavyProgress` / `M3ELoadingIndicator` — wavy-индикаторы с тематическими
-  дефолтами.
-- `M3ESheet` — expressive-шторка (28dp углы, пружинные детенты).
-- `M3EMaterial` — MaterialShapes (Pill / Cookie9Sided / Clover4Sided) готовыми Shape.
 - `M3EMotion` — общий словарь спринов (spatial / spatialFast / effects).
+- `Modifier.m3ePress` — фирменный пружинный press: спад + морф угла.
+- `Modifier.m3ePopIn` — стэггерное волной-появление.
+- `M3EMaterial` — MaterialShapes (Pill / Cookie9Sided / Clover4Leaf / Sunny) как Shape.
 
-Чего в beta01 нет вообще и что пока не здесь: Carousel, FlexibleBottomSheet
-с expandedContent, ButtonGroup/SplitButton/FloatingToolbar-обёртки — компоненты
-Google в beta01 уже есть, при надобности оборачиваются поверх.
+**Кнопки**
+- `M3EButton` / `M3ETonalButton` / `M3EOutlinedButton` — морф pill → сжатый угол.
+- `M3EToggleButton` — idle → pressed → checked(пилюля) shape-морф.
+- `M3EConnectedToggleGroup` — connected-группа (радио-стиль M3E).
+- `M3EButtonGroup` — строка кнопок с автоматическим overflow-меню.
+- `M3ESplitButton` — split с проворачивающейся стрелкой.
+
+**Поверхности и навигация**
+- `M3ELargeFlexibleTopAppBar` / `M3EMediumFlexibleTopAppBar` — flexible-схлопывание.
+- `M3EBottomAppBar` — с FAB-слотом.
+- `M3EHorizontalFloatingToolbar` / `M3EVerticalFloatingToolbar` — пилюли-тулбары.
+- `M3EFabMenu` — FAB-меню (ToggleFloatingActionButton + выезд пунктов).
+- `M3EWideNavigationRail` — разворачивающийся рельс.
+- `M3EMultiBrowseCarousel` — carousel (multi-browse).
+- `M3ESheet` / `M3EFlexibleSheet` — шторки; flexible с expandedContent.
+- `M3EMenuGroup` / `M3EMenuItem` / `M3ECheckableMenuItem` — меню-«острова».
+
+**Индикаторы**
+- `M3ELoadingIndicator` / `M3EContainedLoadingIndicator` — пульсирующие волны.
+- `M3ELinearWavyProgress` / `M3ECircularWavyProgress` — wavy-прогресс.
+- `M3EWavyLinearLoading` / `M3EWavyCircularLoading` — недетерминированные.
+- `M3EWavyDivider` — волна-разделитель из прототипа m3e.
+
+**Морфы фигур (Morph)**
+- `M3EMorphShape` / `m3eMorphShape` — интерполяция двух MaterialShapes-полигонов.
+- `M3EMorphTile` — плитка, морфящаяся pill → cookie под пальцем.
 
 ## Подключение (GitHub Packages)
 

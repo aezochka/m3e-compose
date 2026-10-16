@@ -54,6 +54,8 @@ project.afterEvaluate {
 dependencies {
     api(platform(libs.compose.bom))
     api(libs.compose.material3)
+    api(libs.compose.material.icons.extended)
+    api("androidx.graphics:graphics-shapes:1.0.1")
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.foundation)

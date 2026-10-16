@@ -92,3 +92,45 @@ fun M3ELoadingIndicator(
         color = color,
     )
 }
+
+/** Contained-версия: индикатор в своей капсуле-контейнере. */
+@Composable
+fun M3EContainedLoadingIndicator(
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.primary,
+    containerColor: Color = MaterialTheme.colorScheme.surfaceContainerHighest,
+) {
+    androidx.compose.material3.ContainedLoadingIndicator(
+        modifier = modifier,
+        color = color,
+        containerColor = containerColor,
+    )
+}
+
+/** Недетерминированная wavy-полоса (поиск/загрузка без прогресса). */
+@Composable
+fun M3EWavyLinearLoading(
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.primary,
+    trackColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+) {
+    androidx.compose.material3.LinearWavyProgressIndicator(
+        modifier = modifier,
+        color = color,
+        trackColor = trackColor,
+    )
+}
+
+/** Недетерминированный круговой wavy. */
+@Composable
+fun M3EWavyCircularLoading(
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.primary,
+    trackColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+) {
+    androidx.compose.material3.CircularWavyProgressIndicator(
+        modifier = modifier,
+        color = color,
+        trackColor = trackColor,
+    )
+}
