@@ -138,6 +138,11 @@ fun SectionScreen(key: String, back: () -> Unit) {
                 "sheets" -> SheetsScreen()
                 "menus" -> MenusScreen()
                 "morph" -> MorphScreen()
+                "containers" -> ContainersScreen()
+                "inputs" -> InputsScreen()
+                "search" -> SearchScreen()
+                "time" -> TimeScreen()
+                "lists" -> ListsScreen()
                 "press" -> PressScreen()
             }
             Spacer(Modifier.height(32.dp))

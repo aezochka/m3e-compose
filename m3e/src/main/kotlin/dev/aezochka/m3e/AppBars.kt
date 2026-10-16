@@ -49,6 +49,26 @@ fun M3EMediumFlexibleTopAppBar(
     )
 }
 
+/** Двухрядный: заголовок + подзаголовок, схлопывается в один ряд. */
+@Composable
+fun M3ETwoRowsTopAppBar(
+    title: @Composable () -> Unit,
+    subtitle: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
+    scrollBehavior: TopAppBarScrollBehavior? = null,
+) {
+    androidx.compose.material3.TwoRowsTopAppBar(
+        title = title,
+        subtitle = subtitle,
+        modifier = modifier,
+        navigationIcon = navigationIcon,
+        actions = actions,
+        scrollBehavior = scrollBehavior,
+    )
+}
+
 /** Классический bottom bar с FAB-слотом (M3E — прячь по скроллу AnimatedVisibility'ом). */
 @Composable
 fun M3EBottomAppBar(

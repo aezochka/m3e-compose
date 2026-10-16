@@ -51,4 +51,61 @@ object M3EMaterial {
     /** Солнце — бёрсты, «живые» акценты. */
     @Composable
     fun sunny(): Shape = MaterialShapes.Sunny.toShape()
+
+    /** Взрыв — для активных состояний. */
+    @Composable
+    fun burst(): Shape = MaterialShapes.SoftBurst.toShape()
+}
+
+/**
+ * Полная библиотека MaterialShapes (35 форм) — «shape library ready to use»
+ * из M3E. Выбирай по имени, получай [Shape].
+ */
+enum class M3EShape {
+    CIRCLE, SQUARE, SLANTED, ARCH, FAN, ARROW, SEMI_CIRCLE, OVAL, PILL,
+    TRIANGLE, DIAMOND, CLAM_SHELL, PENTAGON, GEM, SUNNY, VERY_SUNNY,
+    COOKIE_4, COOKIE_6, COOKIE_7, COOKIE_9, COOKIE_12, GHOSTISH,
+    CLOVER_4, CLOVER_8, BURST, SOFT_BURST, BOOM, SOFT_BOOM, FLOWER,
+    PUFFY, PUFFY_DIAMOND, PIXEL_CIRCLE, PIXEL_TRIANGLE, BUN, HEART;
+
+    /** Форма как Shape (composable — внутри композиции). */
+    @androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+    @Composable
+    fun shape(): Shape = when (this) {
+        CIRCLE -> MaterialShapes.Circle
+        SQUARE -> MaterialShapes.Square
+        SLANTED -> MaterialShapes.Slanted
+        ARCH -> MaterialShapes.Arch
+        FAN -> MaterialShapes.Fan
+        ARROW -> MaterialShapes.Arrow
+        SEMI_CIRCLE -> MaterialShapes.SemiCircle
+        OVAL -> MaterialShapes.Oval
+        PILL -> MaterialShapes.Pill
+        TRIANGLE -> MaterialShapes.Triangle
+        DIAMOND -> MaterialShapes.Diamond
+        CLAM_SHELL -> MaterialShapes.ClamShell
+        PENTAGON -> MaterialShapes.Pentagon
+        GEM -> MaterialShapes.Gem
+        SUNNY -> MaterialShapes.Sunny
+        VERY_SUNNY -> MaterialShapes.VerySunny
+        COOKIE_4 -> MaterialShapes.Cookie4Sided
+        COOKIE_6 -> MaterialShapes.Cookie6Sided
+        COOKIE_7 -> MaterialShapes.Cookie7Sided
+        COOKIE_9 -> MaterialShapes.Cookie9Sided
+        COOKIE_12 -> MaterialShapes.Cookie12Sided
+        GHOSTISH -> MaterialShapes.Ghostish
+        CLOVER_4 -> MaterialShapes.Clover4Leaf
+        CLOVER_8 -> MaterialShapes.Clover8Leaf
+        BURST -> MaterialShapes.Burst
+        SOFT_BURST -> MaterialShapes.SoftBurst
+        BOOM -> MaterialShapes.Boom
+        SOFT_BOOM -> MaterialShapes.SoftBoom
+        FLOWER -> MaterialShapes.Flower
+        PUFFY -> MaterialShapes.Puffy
+        PUFFY_DIAMOND -> MaterialShapes.PuffyDiamond
+        PIXEL_CIRCLE -> MaterialShapes.PixelCircle
+        PIXEL_TRIANGLE -> MaterialShapes.PixelTriangle
+        BUN -> MaterialShapes.Bun
+        HEART -> MaterialShapes.Heart
+    }.toShape()
 }

@@ -54,6 +54,7 @@ project.afterEvaluate {
 dependencies {
     api(platform(libs.compose.bom))
     api(libs.compose.material3)
+    api("androidx.compose.material3:material3-ripple:1.5.0-beta01")
     api(libs.compose.material.icons.extended)
     api("androidx.graphics:graphics-shapes:1.0.1")
     implementation(libs.compose.ui)

@@ -22,11 +22,14 @@ import androidx.compose.material.icons.outlined.Bolt
 import androidx.compose.material.icons.outlined.Category
 import androidx.compose.material.icons.outlined.TouchApp
 import androidx.compose.material.icons.outlined.Dashboard
+import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.Extension
 import androidx.compose.material.icons.outlined.GridView
 import androidx.compose.material.icons.outlined.Layers
 import androidx.compose.material.icons.outlined.List
 import androidx.compose.material.icons.outlined.PictureAsPdf
+import androidx.compose.material.icons.outlined.Schedule
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.SmartButton
 import androidx.compose.material.icons.outlined.CallSplit
 import androidx.compose.material.icons.outlined.Tune
@@ -72,6 +75,11 @@ val sections = listOf(
     Section("sheets", "Sheets", Icons.Outlined.Layers),
     Section("menus", "Меню-группы", Icons.Outlined.List),
     Section("morph", "Морфы фигур", Icons.Outlined.Extension),
+    Section("containers", "Контейнеры", Icons.Outlined.Dashboard),
+    Section("inputs", "Поля ввода", Icons.Outlined.Edit),
+    Section("search", "Поиск", Icons.Outlined.Search),
+    Section("time", "Время (Vibrant)", Icons.Outlined.Schedule),
+    Section("lists", "Списки", Icons.Outlined.List),
     Section("press", "Press / Pop-in / Волна", Icons.Outlined.TouchApp),
 )
 
