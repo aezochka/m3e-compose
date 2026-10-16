@@ -113,7 +113,7 @@ fun M3EBadge(
 fun M3EBadgedBox(
     badge: @Composable () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit,
+    content: @Composable androidx.compose.foundation.layout.BoxScope.() -> Unit,
 ) {
     BadgedBox(badge = badge, modifier = modifier, content = content)
 }

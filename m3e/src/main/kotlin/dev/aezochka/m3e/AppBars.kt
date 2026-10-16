@@ -53,10 +53,10 @@ fun M3EMediumFlexibleTopAppBar(
 @Composable
 fun M3ETwoRowsTopAppBar(
     title: @Composable () -> Unit,
-    subtitle: @Composable () -> Unit,
+    subtitle: @Composable (Boolean) -> Unit,
     modifier: Modifier = Modifier,
-    navigationIcon: @Composable () -> Unit = {},
-    actions: @Composable RowScope.() -> Unit = {},
+    navigationIcon: @Composable (Boolean) -> Unit = {},
+    actions: @Composable (Boolean) -> Unit = {},
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
     androidx.compose.material3.TwoRowsTopAppBar(

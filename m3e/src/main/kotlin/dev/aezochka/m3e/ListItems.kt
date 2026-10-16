@@ -1,21 +1,19 @@
-@file:OptIn(
-    androidx.compose.material3.ExperimentalMaterial3Api::class,
-    androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class,
-)
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 
 package dev.aezochka.m3e
 
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.InteractiveListItem
-import androidx.compose.material3.ListItemShapes
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /**
- * Expressive list item: 16dp форма, при нажатии морф в 28dp,
- * выбранный — пилюля. Слот-структура как у классического ListItem.
+ * Expressive list item: классический ListItem + пружинный press-морф
+ * (16dp → 28dp под пальцем) вместо плоского ripple.
+ * InteractiveListItem (с shape-морфами) в beta01 приватный —
+ * поэтому морф делаем сами через [m3ePress].
  */
 @Composable
 fun M3EListItem(
@@ -25,26 +23,19 @@ fun M3EListItem(
     overline: String? = null,
     leadingContent: (@Composable () -> Unit)? = null,
     trailingContent: (@Composable () -> Unit)? = null,
-    selected: Boolean = false,
     onClick: () -> Unit = {},
 ) {
-    InteractiveListItem(
-        modifier = modifier,
-        onClick = onClick,
-        selected = selected,
+    ListItem(
+        headlineContent = { Text(headline) },
+        modifier = modifier.m3ePress(
+            onClick = onClick,
+            corner = 16.dp,
+            cornerPressed = 28.dp,
+        ),
+        overlineContent = overline?.let { { Text(it) } },
+        supportingContent = supporting?.let { { Text(it) } },
         leadingContent = leadingContent,
         trailingContent = trailingContent,
-        overlineContent = overline?.let { overlineText -> { Text(overlineText) } },
-        supportingContent = supporting?.let { supportingText -> { Text(supportingText) } },
-        shapes = ListItemShapes(
-            shape = RoundedCornerShape(16.dp),
-            pressedShape = RoundedCornerShape(28.dp),
-            focusedShape = RoundedCornerShape(28.dp),
-            hoveredShape = RoundedCornerShape(24.dp),
-            selectedShape = RoundedCornerShape(percent = 50),
-            disabledShape = RoundedCornerShape(16.dp),
-        ),
-    ) {
-        Text(headline)
-    }
+        tonalElevation = 0.dp,
+    )
 }
