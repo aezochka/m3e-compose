@@ -1,9 +1,12 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class)
+
 package dev.aezochka.m3e
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialShapes
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.toShape
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 
@@ -28,14 +31,24 @@ fun m3eShapes(): Shapes = Shapes(
     extraLarge = RoundedCornerShape(M3ECornerScale.extraLarge),
 )
 
-/** Материальные формы из MaterialShapes для акцентных поверхностей. */
+/**
+ * Материальные формы из MaterialShapes для акцентных поверхностей.
+ * toShape() — composable, поэтому функции, не значения.
+ */
 object M3EMaterial {
     /** Пилюля — spacebar, кнопки-«капсулы». */
-    val pill: Shape = MaterialShapes.Pill.toShape()
+    @Composable
+    fun pill(): Shape = MaterialShapes.Pill.toShape()
 
     /** Печенька 9-угольная — акцентные пузыри, бейджи. */
-    val cookie: Shape = MaterialShapes.Cookie9Sided.toShape()
+    @Composable
+    fun cookie(): Shape = MaterialShapes.Cookie9Sided.toShape()
 
     /** Клевер 4-листный. */
-    val clover: Shape = MaterialShapes.Clover4Sided.toShape()
+    @Composable
+    fun clover(): Shape = MaterialShapes.Clover4Leaf.toShape()
+
+    /** Солнце — бёрсты, «живые» акценты. */
+    @Composable
+    fun sunny(): Shape = MaterialShapes.Sunny.toShape()
 }

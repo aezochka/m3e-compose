@@ -125,17 +125,17 @@ fun Showcase() {
             Section("Материальные формы")
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                 Box(
-                    Modifier.size(64.dp).clip(M3EMaterial.pill)
+                    Modifier.size(64.dp).clip(M3EMaterial.pill()
                         .background(scheme.primaryContainer),
                     contentAlignment = Alignment.Center,
                 ) { Text("Pill", color = scheme.onPrimaryContainer) }
                 Box(
-                    Modifier.size(64.dp).clip(M3EMaterial.cookie)
+                    Modifier.size(64.dp).clip(M3EMaterial.cookie()
                         .background(scheme.tertiaryContainer),
                     contentAlignment = Alignment.Center,
                 ) { Text("Cookie", color = scheme.onTertiaryContainer) }
                 Box(
-                    Modifier.size(64.dp).clip(M3EMaterial.clover)
+                    Modifier.size(64.dp).clip(M3EMaterial.clover()
                         .background(scheme.secondaryContainer),
                     contentAlignment = Alignment.Center,
                 ) { Text("Clover", color = scheme.onSecondaryContainer) }
@@ -171,7 +171,7 @@ fun Showcase() {
                 Box(
                     Modifier
                         .m3ePillPress(onClick = {})
-                        .clip(M3EMaterial.pill)
+                        .clip(M3EMaterial.pill()
                         .background(scheme.surfaceContainerHighest)
                         .padding(horizontal = 18.dp, vertical = 10.dp),
                 ) { Text("Material") }
