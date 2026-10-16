@@ -94,7 +94,7 @@ fun M3ECheckableMenuItem(
     modifier: Modifier = Modifier,
     leadingIcon: ImageVector? = null,
 ) {
-    androidx.compose.material3.DropdownMenuItem(
+    androidx.compose.material3.CheckableDropdownMenuItem(
         text = { androidx.compose.material3.Text(text) },
         onCheckedChange = onCheckedChange,
         checked = checked,
