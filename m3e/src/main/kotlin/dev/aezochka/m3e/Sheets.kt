@@ -1,4 +1,7 @@
-@file:OptIn(androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class)
+@file:OptIn(
+    androidx.compose.material3.ExperimentalMaterial3Api::class,
+    androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class,
+)
 
 package dev.aezochka.m3e
 
@@ -6,30 +9,28 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheet
 import androidx.compose.material3.SheetState
-import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /**
- * Flexible Bottom Sheet M3E: шторка с [expandedContent] — контентом,
- * который раскрывается из шторки в полное «полотно» по мере вытягивания.
- * Это фирменный M3E-паттерн «sheet → expanded canvas».
+ * In-layout Bottom Sheet M3E: шторка прямо в разметке (не модальная),
+ * с maxWidth-ограничением, жестами и dragHandle. Гибкая — влезает
+ * в ограниченную колонку на планшете. Для модальной — [M3ESheet].
  */
 @Composable
 fun M3EFlexibleSheet(
     onDismissRequest: () -> Unit,
     modifier: Modifier = Modifier,
-    sheetState: SheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false),
-    expandedContent: (@Composable (Boolean) -> Unit)? = null,
+    state: SheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false),
     content: @Composable ColumnScope.() -> Unit,
 ) {
     BottomSheet(
         onDismissRequest = onDismissRequest,
         modifier = modifier,
-        sheetState = sheetState,
-        expandedContent = expandedContent,
+        state = state,
+        shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
         content = content,
     )
 }

@@ -97,13 +97,13 @@ fun M3ELoadingIndicator(
 @Composable
 fun M3EContainedLoadingIndicator(
     modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colorScheme.primary,
     containerColor: Color = MaterialTheme.colorScheme.surfaceContainerHighest,
+    indicatorColor: Color = MaterialTheme.colorScheme.primary,
 ) {
     androidx.compose.material3.ContainedLoadingIndicator(
         modifier = modifier,
-        color = color,
         containerColor = containerColor,
+        indicatorColor = indicatorColor,
     )
 }
 

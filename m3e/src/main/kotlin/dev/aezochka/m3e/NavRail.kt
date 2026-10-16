@@ -3,7 +3,6 @@
 package dev.aezochka.m3e
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.WideNavigationRail
@@ -16,8 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 
 /**
- * Wide Navigation Rail M3E: рельс, который разворачивается
- * (сворачивается) с пружинной анимацией — системный паттерн
+ * Wide Navigation Rail M3E: рельс, который разворачивается/сворачивается
+ * с пружинной анимацией (railState.toggle()) — системный паттерн
  * для планшетов/лендскейпа.
  */
 @Composable
@@ -29,9 +28,10 @@ fun M3EWideNavigationRail(
     selected: Int,
     onSelect: (Int) -> Unit,
 ) {
+    val expanded = railState.currentValue == WideNavigationRailValue.Expanded
     WideNavigationRail(
         modifier = modifier,
-        railState = railState,
+        state = railState,
         header = header,
     ) {
         Column {
@@ -41,6 +41,7 @@ fun M3EWideNavigationRail(
                     onClick = { onSelect(index) },
                     icon = { Icon(icon, contentDescription = label) },
                     label = { Text(label) },
+                    railExpanded = expanded,
                 )
             }
         }
