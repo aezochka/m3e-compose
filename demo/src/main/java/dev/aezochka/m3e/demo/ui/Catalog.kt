@@ -70,6 +70,7 @@ val sections = listOf(
     Section("appbar", "Flexible app bar", Icons.Outlined.Dashboard),
     Section("bottombar", "BottomAppBar + FAB", Icons.Outlined.Category),
     Section("rail", "Wide NavigationRail", Icons.Outlined.ViewSidebar),
+    Section("navcomponents", "Short Navigation + Segments", Icons.Outlined.ViewSidebar),
     Section("carousel", "Carousel", Icons.Outlined.PictureAsPdf),
     Section("progress", "Wavy / Loading", Icons.Outlined.TripOrigin),
     Section("sheets", "Sheets", Icons.Outlined.Layers),

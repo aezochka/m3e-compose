@@ -6,7 +6,7 @@ plugins {
     `maven-publish`
 }
 
-val m3eVersion = (findProperty("m3eVersion") as String?) ?: "0.1.0"
+val m3eVersion = (findProperty("m3eVersion") as String?) ?: "0.4.0"
 
 android {
     namespace = "dev.aezochka.m3e"

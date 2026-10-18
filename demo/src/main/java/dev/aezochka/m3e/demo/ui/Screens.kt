@@ -88,6 +88,9 @@ import dev.aezochka.m3e.M3EMenuGroup
 import dev.aezochka.m3e.M3EMenuItem
 import dev.aezochka.m3e.M3ECheckableMenuItem
 import dev.aezochka.m3e.M3EMotion
+import dev.aezochka.m3e.M3ESegmentedButtonRow
+import dev.aezochka.m3e.M3EShortNavigationBar
+import dev.aezochka.m3e.M3EShortNavigationItem
 import dev.aezochka.m3e.m3ePopIn
 import dev.aezochka.m3e.m3ePress
 
@@ -133,6 +136,7 @@ fun SectionScreen(key: String, back: () -> Unit) {
                 "appbar" -> AppBarScreen()
                 "bottombar" -> BottomBarScreen()
                 "rail" -> RailScreen()
+                "navcomponents" -> NavigationComponentsScreen()
                 "carousel" -> CarouselScreen()
                 "progress" -> ProgressScreen()
                 "sheets" -> SheetsScreen()

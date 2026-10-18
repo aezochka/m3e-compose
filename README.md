@@ -7,7 +7,7 @@
 Сверялся с живыми M3E-проектами: meticha/material-3-expressive-catalog,
 ocegik/Material3Expressive, M3E Canvas (setproduct).
 
-## Что внутри (v0.2.0)
+## Что внутри (v0.4.0)
 
 **Тема и движение**
 - `M3ETheme` — MaterialExpressiveTheme + MotionScheme.expressive() + экспрессивная
@@ -30,6 +30,8 @@ ocegik/Material3Expressive, M3E Canvas (setproduct).
 - `M3EHorizontalFloatingToolbar` / `M3EVerticalFloatingToolbar` — пилюли-тулбары.
 - `M3EFabMenu` — FAB-меню (ToggleFloatingActionButton + выезд пунктов).
 - `M3EWideNavigationRail` — разворачивающийся рельс.
+- `M3ESegmentedButtonRow` — single-choice segmented control с материал-формами для краёв.
+- `M3EShortNavigationBar` — expressive нижняя навигация с выбранным индикатором.
 - `M3EMultiBrowseCarousel` — carousel (multi-browse).
 - `M3ESheet` / `M3EFlexibleSheet` — шторки; flexible с expandedContent.
 - `M3EMenuGroup` / `M3EMenuItem` / `M3ECheckableMenuItem` — меню-«острова».
@@ -62,7 +64,7 @@ dependencyResolutionManagement {
 }
 
 // app
-implementation("dev.aezochka:m3e-compose:0.1.0")
+implementation("dev.aezochka:m3e-compose:0.4.0")
 ```
 
 В GitHub Actions вместо PAT — `secrets.GITHUB_TOKEN` (+ `permissions: packages: read`)
