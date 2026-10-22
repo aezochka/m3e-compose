@@ -82,6 +82,11 @@ val sections = listOf(
     Section("time", "Время (Vibrant)", Icons.Outlined.Schedule),
     Section("lists", "Списки", Icons.Outlined.List),
     Section("press", "Press / Pop-in / Волна", Icons.Outlined.TouchApp),
+    Section("sizes", "Размеры кнопок", Icons.Outlined.SmartButton),
+    Section("iconbuttons", "Icon buttons", Icons.Outlined.Edit),
+    Section("fabs", "FAB / Extended", Icons.Outlined.Bolt),
+    Section("sliders", "Слайдеры + Switch", Icons.Outlined.Tune),
+    Section("actions", "AppBarRow + Tooltip", Icons.Outlined.GridView),
 )
 
 @Composable

@@ -14,11 +14,17 @@ import androidx.compose.animation.core.tween
  * компоненты material3 — а [M3EMotion] даёт тот же характер своим анимациям.
  */
 object M3EMotion {
+    /** Мягкий пространственный спринг: лёгкий овершут без «желе». */
     fun <T> spatial(): FiniteAnimationSpec<T> =
-        spring(dampingRatio = 0.62f, stiffness = Spring.StiffnessMediumLow)
+        spring(dampingRatio = 0.82f, stiffness = 380f)
 
+    /** Быстрый — press/морфы под пальцем. */
     fun <T> spatialFast(): FiniteAnimationSpec<T> =
-        spring(dampingRatio = 0.55f, stiffness = Spring.StiffnessMedium)
+        spring(dampingRatio = 0.86f, stiffness = 600f)
+
+    /** Прежние «пружинистые» значения (0.62/0.55) — для тех, кому нужен bounce. */
+    fun <T> bouncy(): FiniteAnimationSpec<T> =
+        spring(dampingRatio = 0.62f, stiffness = Spring.StiffnessMediumLow)
 
     fun <T> effects(): FiniteAnimationSpec<T> =
         tween(190, easing = CubicBezierEasing(0.2f, 0f, 0f, 1f))

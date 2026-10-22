@@ -36,7 +36,10 @@ fun M3ESplitButton(
     onExpandedChange: (Boolean) -> Unit = {},
     trailingIcon: ImageVector = Icons.Filled.KeyboardArrowDown,
 ) {
-    var checked by remember { mutableStateOf(expanded) }
+    // controlled, если снаружи дают onExpandedChange; внутреннее состояние — только фолбэк
+    var internal by remember { mutableStateOf(expanded) }
+    androidx.compose.runtime.LaunchedEffect(expanded) { internal = expanded }
+    val checked = internal
     SplitButtonLayout(
         modifier = modifier,
         leadingButton = {
@@ -56,7 +59,7 @@ fun M3ESplitButton(
             SplitButtonDefaults.TrailingButton(
                 checked = checked,
                 onCheckedChange = {
-                    checked = it
+                    internal = it
                     onExpandedChange(it)
                 },
             ) {

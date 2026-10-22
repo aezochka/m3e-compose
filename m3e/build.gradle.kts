@@ -6,7 +6,7 @@ plugins {
     `maven-publish`
 }
 
-val m3eVersion = (findProperty("m3eVersion") as String?) ?: "0.4.0"
+val m3eVersion = (findProperty("m3eVersion") as String?) ?: "0.5.0"
 
 android {
     namespace = "dev.aezochka.m3e"
@@ -54,9 +54,9 @@ project.afterEvaluate {
 dependencies {
     api(platform(libs.compose.bom))
     api(libs.compose.material3)
-    api("androidx.compose.material3:material3-ripple:1.5.0-beta01")
+    api("androidx.compose.material3:material3-ripple:1.5.0-beta02")
     api(libs.compose.material.icons.extended)
-    api("androidx.graphics:graphics-shapes:1.0.1")
+    api("androidx.graphics:graphics-shapes:1.1.0")
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.foundation)

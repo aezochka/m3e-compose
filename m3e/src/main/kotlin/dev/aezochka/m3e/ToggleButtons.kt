@@ -68,16 +68,19 @@ fun M3EConnectedToggleGroup(
         horizontalArrangement = Arrangement.spacedBy(ButtonGroupDefaults.ConnectedSpaceBetween),
     ) {
         options.forEachIndexed { index, label ->
-            val idle = when (index) {
-                0 -> RoundedCornerShape(topStart = 20.dp, bottomStart = 20.dp)
-                n - 1 -> RoundedCornerShape(topEnd = 20.dp, bottomEnd = 20.dp)
-                else -> RoundedCornerShape(0.dp)
+            // спековые connected-формы: внешние края скруглены, внутренние — малый угол,
+            // pressed сжимается, checked морфится в пилюлю
+            val shapes = when {
+                n == 1 -> m3eToggleShapes()
+                index == 0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
+                index == n - 1 -> ButtonGroupDefaults.connectedTrailingButtonShapes()
+                else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
             }
             ToggleButton(
                 checked = selected == index,
                 onCheckedChange = { onSelect(index) },
-                modifier = Modifier.weight(if (index == n / 2) 1.5f else 1f),
-                shapes = m3eToggleShapes(idle = idle),
+                modifier = Modifier.weight(1f),
+                shapes = shapes,
             ) {
                 val icon = (if (selected == index) checkedIcons else icons)?.getOrNull(index)
                 if (icon != null) {
