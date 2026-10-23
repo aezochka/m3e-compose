@@ -40,12 +40,18 @@ fun M3EButtonSize.iconButtonContainer(width: M3EIconButtonWidth = M3EIconButtonW
     M3EButtonSize.ExtraLarge -> IconButtonDefaults.extraLargeContainerSize(width.option())
 }
 
+/**
+ * Размер иконки по размеру кнопки.
+ *
+ * Константы `IconButtonDefaults.*IconSize` есть не во всех сборках material3
+ * (в резолве CI их не было → Unresolved reference), поэтому держим свои Dp.
+ */
 fun M3EButtonSize.iconButtonIcon(): Dp = when (this) {
-    M3EButtonSize.ExtraSmall -> IconButtonDefaults.ExtraSmallIconSize
-    M3EButtonSize.Small -> IconButtonDefaults.SmallIconSize
-    M3EButtonSize.Medium -> IconButtonDefaults.MediumIconSize
-    M3EButtonSize.Large -> IconButtonDefaults.LargeIconSize
-    M3EButtonSize.ExtraLarge -> IconButtonDefaults.ExtraLargeIconSize
+    M3EButtonSize.ExtraSmall -> 20.dp
+    M3EButtonSize.Small -> 24.dp
+    M3EButtonSize.Medium -> 24.dp
+    M3EButtonSize.Large -> 32.dp
+    M3EButtonSize.ExtraLarge -> 40.dp
 }
 
 /**
