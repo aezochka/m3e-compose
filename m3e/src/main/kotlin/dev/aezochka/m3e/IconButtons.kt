@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 
 /** Вариант заливки иконочной кнопки. */
 enum class M3EIconButtonStyle { Standard, Filled, Tonal, Outlined }
